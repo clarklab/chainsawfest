@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chainsaw Fest</title>
+  <meta name="description" content="Slashing in a town near you soon">
+
+  <link rel="canonical" href="https://chainsawfest.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainsawfest.com/">
+  <meta property="og:title" content="Chainsaw Fest">
+  <meta property="og:description" content="Slashing in a town near you soon">
+  <meta property="og:image" content="https://chainsawfest.com/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chainsaw Fest">
+  <meta name="twitter:description" content="Slashing in a town near you soon">
+  <meta name="twitter:image" content="https://chainsawfest.com/og.jpg">
+  <style>
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #000 url("bg.webp") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .egg {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s ease;
+    }
+
+    .egg.on {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .egg video {
+      max-width: 50%;
+      max-height: 90vh;
+    }
+
+    @media (min-width: 768px) {
+      .egg video {
+        max-width: 20%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="egg" aria-hidden="true">
+    <video src="leatherface.webm" muted loop playsinline preload="auto"></video>
+  </div>
+
+  <script>
+    const egg = document.querySelector(".egg");
+    let clicks = 0;
+
+    document.addEventListener("click", () => {
+      if (++clicks !== 6) return;
+      egg.classList.add("on");
+      egg.querySelector("video").play();
+    });
+  </script>
+</body>
+</html>
